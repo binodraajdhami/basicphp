@@ -69,23 +69,23 @@ $group_of_sudents = [
         "email" => "hair@gmail.com"
     ]
 ];
-
-// foreach ($group_of_sudents as $stud) {
-//     foreach ($stud as $key => $value) {
-//         echo $key . ' : ' . $value;
-//         echo "<br>";
-//     }
-// }
-
-foreach ($group_of_sudents as $stud) {
-    echo "id" . ' : ' . $stud['id'];
-    echo "name" . ' : ' . $stud['name'];
-    echo "email" . ' : ' . $stud['email'];
-    echo "======================";
-    echo "<br>";
-}
-
-
-
-
 ?>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($group_of_sudents as $student) { ?>
+            <tr>
+                <td><?php echo $student['id']; ?></td>
+                <td><?php echo $student['name']; ?></td>
+                <td><?php echo $student['email']; ?></td>
+            </tr>
+        <?php } ?>
+    </tbody>
+</table>
