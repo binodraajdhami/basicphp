@@ -47,10 +47,8 @@ if (isset($_POST['btnsubmit'])) {
 
     $status = $_POST['status'];
 
-    // test purpose only
-    echo "<pre>";
-    print_r($book_data);
-    echo "</pre>";
+    print_r($status);
+    print_r($updated_by);
 
     if (
         isset($book_name) &&
@@ -67,27 +65,16 @@ if (isset($_POST['btnsubmit'])) {
                 category='$category',
                 author_name='$author_name',
                 price=$price,
-                status=$status and
+                status=$status,
                 updated_by='$updated_by'
                 where id=$book_id ";
 
         // execute query
         $connection->query($sql);
 
-
-        // test purpose only
-        echo "<pre>";
-        print_r($connection);
-        echo "</pre>";
-
         // redirect to list page
-        // header("location:book_list.php");
+        header("location:book_list.php");
     }
-
-    // test purpose only
-    // echo "<pre>";
-    // print_r($book_data);
-    // echo "</pre>";
 }
 
 ?>
@@ -128,7 +115,7 @@ if (isset($_POST['btnsubmit'])) {
                 <div class="form-group">
                     <label>Status</label>
 
-                    <?php if ($book_data['status'] === 1) { ?>
+                    <?php if ($book_data['status'] == 1) { ?>
                         <label>
                             <input type="radio" name="status" value="1" checked> Yes
                         </label>
@@ -152,7 +139,7 @@ if (isset($_POST['btnsubmit'])) {
 
                 <div class="form-group">
                     <label for="updated_by">Updated By</label>
-                    <input type="text" id="updated_by" name="updated_by" class="form-control">
+                    <input type="text" id="updated_by" name="updated_by" class="form-control" value="<?php echo $book_data['updated_by']; ?>">
                 </div>
 
                 <button type="submit" name="btnsubmit" class="btn btn-success">Updated Book</button>
