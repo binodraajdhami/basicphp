@@ -44,3 +44,9 @@ tbl_news
 - updated_by		integer
 - created_at		date and time
 - updated_at		date and time -->
+
+Registration
+Login
+ajax
+zone
+district
